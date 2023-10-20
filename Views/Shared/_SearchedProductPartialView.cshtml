@@ -1,0 +1,32 @@
+﻿@using PetShopFinal.DAL.Models;
+@model List<MainProducts>
+
+
+@foreach (var item in Model)
+{
+    <li>
+        <div class="inp_filter">
+
+            <a class="text-danger" href="">@item.Name</a>
+        </div>
+    </li>
+}
+
+<script>
+
+    $(document).on('keyup', '#input-search', function () {
+        var searchedProduct = $(this).val();
+
+        $.ajax({
+            url: "/shop/search?searchedProduct=" + searchedProduct,
+            type: "GET",
+            success: function (response) {
+                $("#appendProduct").append(response);
+            },
+            error: function (xhr) {
+
+            }
+        })
+    });
+
+</script>

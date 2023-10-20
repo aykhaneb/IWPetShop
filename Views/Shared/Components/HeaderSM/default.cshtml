@@ -1,0 +1,68 @@
+﻿@using PetShopFinal.DAL.Models;
+@model HeaderSM
+
+<header class="sm_header">
+    <div class="container_sm">
+        <div class="content_sm_header">
+            <div class="bars_and_logo">
+                <i class="burger fa-solid fa-bars"></i>
+                <img src="~/assets/@Model.LogoUrl" alt="" />
+            </div>
+            <div class="basket_and_search d-flex">
+                <i class="search_icon fa-solid fa-magnifying-glass"></i>
+                <div class="all_basket">
+                    <a href="/Basket/Index">
+                        <i id="basket" class="fa-solid fa-cart-shopping"></i>
+                        <span>0</span>
+                    </a>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="sm_navbar d-none">
+    <div class="content_navbar">
+        <!-- <div class="container"> -->
+        <div class="home">
+            <a href="index.html">HOME</a>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        PAGES
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="nav_links"><a href="/About/Index">ABOUT US</a></div>
+                        <div class="nav_links"><a href="/Offer/Index">WHAT WE OFFER</a></div>
+                        <div class="nav_links"><a href="/Testimonials/Index">TESTIMONIALS</a></div>
+                        <div class="nav_links"><a href="/Pricing/Index">PRICING LIST</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="home">
+            <a href="/Blog/Index">BLOG</a>
+        </div>
+        <div class="home">
+            <a href="/Gallery/Index">GALLERY</a>
+        </div>
+        <div class="home">
+            <a href="/Contact/Index">CONTACT</a>
+        </div>
+        <div class="home">
+            <a href="/Tabs/Index">TABS & ACCORDIONS</a>
+        </div>
+        <div class="home">
+            <a href="/Forms/Index">FORMS</a>
+        </div>
+        <div class="home">
+            <a href="/Shop/Index">SHOP</a>
+        </div>
+    </div>
+</section>

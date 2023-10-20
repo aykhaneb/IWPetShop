@@ -1,0 +1,29 @@
+﻿@using PetShopFinal.DAL.Models;
+@model MainProducts
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Product</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo">Username</label>
+                    <input asp-for="Photo" class="form-control" id="exampleInputUsername1" placeholder="Username" accept="image/*">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name">Pruduct Name</label>
+                    <input asp-for="Name" type="text" class="form-control" id="exampleInputUsername1" placeholder="Product Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductPrice">Price</label>
+                    <input asp-for="ProductPrice" type="text" class="form-control" id="exampleInputUsername1" placeholder="Price">
+                    <span asp-validation-for="ProductPrice"></span>
+                </div>
+                <button type="submit" asp class="btn btn-primary mr-2">Submit</button>
+                <button asp-controller="index" class="btn btn-dark">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+

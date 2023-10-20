@@ -1,0 +1,185 @@
+﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "Basket";
+}
+<style>
+    /* button */
+    .shopnow {
+        background-color: #ffd33b !important;
+    }
+
+    .btn {
+        margin: 2rem .5rem;
+        padding: .5rem 1rem;
+        border-radius: 8px;
+        outline: 0;
+        background: red;
+        border: 1px solid red;
+        color: #fff;
+        cursor: pointer;
+    }
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        text-align: center;
+        border-radius: 3px;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    .ui {
+        transition: .5s;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+<main>
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>Cart Page</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="/Shop/Index">SHOP</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Basket/Index">CART PAGE</a>
+    </section>
+
+    <section class="cart_table">
+        <div class="container">
+            <div class="content_table">
+                <div class="foralert d-none">
+                    <div class="alert rounded-5 w-25 mx-auto text-center">
+                        Basket Is Empty...
+                    </div>
+                </div>
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th class="first_th">Product Name</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center end_th">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody"></tbody>
+                </table>
+                <div class="check_div">
+                    <button class="checkout btn-danger rounded-2" data-toggle="modal" data-modal-toggle="#firstModal">PROCEED TO CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="ui  center aligned container w-25">
+        <div id="firstModal" class="modal">
+            <div class="modal-content">
+                <span data-modal-toggle="#firstModal" class="close">&times;</span>
+                <h2 class="text-success">THANKS FOR SHOPPING</h2>
+                <button clas="shopnow" type=”button” class="btn" asp-controller="shop" asp-action="index">SHOP PAGE</button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    ; (function ($) {
+
+        function ModalWidget(modal) {
+            this.$modal = $(modal);
+
+            this.toggleModal();
+            this.closeByAnywhereButModal();
+            this.closeByEscKey();
+        }
+
+
+        ModalWidget.prototype = {
+            constructor: ModalWidget,
+            toggleModal: function () {
+                $('[data-modal-toggle]')
+                    .unbind('click').bind('click', function () {
+                        var modalId = $(this).attr('data-modal-toggle');
+                        $.each($('.modal'), function (i, modal) {
+                            if ('#' + $(modal)[0].id != modalId) $(modal).hide();
+                        });
+                        $(modalId).is(':visible') ? $(modalId).hide() : $(modalId).show();
+                    })
+            },
+            closeByAnywhereButModal: function () {
+                $(this.$modal)
+                    .on('click', $.proxy(function (e) {
+                        if (e.target == e.currentTarget) {
+                            $(this.$modal).hide();
+                        }
+                    }, this));
+            },
+            closeByEscKey: function () {
+                $(document).keyup($.proxy(function (e) {
+                    if (e.keyCode === 27) {
+                        $(this.$modal).hide();
+                    }
+                }, this));
+            }
+        }
+
+        window.ModalWidget = ModalWidget;
+
+        $.fn.modalWidget = function (option) {
+            return this.each(function () {
+                var $this = $(this),
+                    data = $this.data("modalWidget");
+
+                if (!data) $this.data("modalWidget", (data = new ModalWidget(this)));
+
+                if (typeof option === "string") data[option]();
+            });
+        }
+
+        $(".modal").modalWidget();
+
+    }(jQuery));
+
+</script>

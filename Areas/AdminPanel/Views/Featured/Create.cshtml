@@ -1,0 +1,28 @@
+﻿@using PetShopFinal.DAL.Models;
+@model Featured
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Product</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo">Photo</label>
+                    <input asp-for="Photo" class="form-control" id="exampleInputUsername1" placeholder="Username" accept="image/*">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Title</label>
+                    <textarea asp-for="Title" id="description" type="text" class="form-control" id="exampleInputUsername1" placeholder="Title"></textarea>
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <button type="submit" asp class="btn btn-primary mr-2">Submit</button>
+                <button asp-controller="index" class="btn btn-dark">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_CkeEditorPartial"></partial>
+}

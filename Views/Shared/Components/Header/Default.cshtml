@@ -1,0 +1,29 @@
+﻿@using PetShopFinal.DAL.Models;
+@model Header
+
+<header class="lg_header">
+    <section class="header">
+        <div class="all_header">
+            <div class="container">
+                <div class="content_header">
+                    <div class="location">
+                        <div class="locate">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="adress">
+                            <p>
+                                @Html.Raw(Model.Location)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <img src="~/assets/@Model.ImageUrl" alt="" />
+                    </div>
+                    <div class="touch">
+                        <a href=""><i class="fa-regular fa-envelope"></i>@Model.Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

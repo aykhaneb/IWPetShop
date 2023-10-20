@@ -1,0 +1,67 @@
+﻿@using PetShopFinal.DAL.Models;
+@model HeaderBottom
+
+<section class="bottom_header">
+    <div class="container">
+        <div class="content_navbar">
+            <div class="pages">
+                <a href="/Home/Index">HOME</a>
+                <div class="pages_category_position">
+                    <button id="pages">PAGES</button>
+                    <section class="pages_category d-none">
+                        <div class="content_pages">
+                            <ul style="list-style: none">
+                                <li><a href="/About/Index">ABOUT US</a></li>
+                                <li><a href="/Offer/Index">WHAT WE OFFER</a></li>
+                                <li><a href="/Testimonials/Index">TESTIMONIALS</a></li>
+                                <li><a href="/Pricing/Index">PRICING LIST</a></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <a href="/Blog/Index">BLOG</a>
+                <a href="/Gallery/Index">GALLERY</a>
+                <div class="elements_category_position">
+                    <button id="elements">ELEMENTS</button>
+                    <section class="elements_category d-none">
+                        <div class="content_pages">
+                            <ul style="list-style: none">
+                                <li><a href="/Contact/Index">CONTACT</a></li>
+                                <li><a href="/Forms/Index">FORMS</a></li>
+                                <li><a href="/Tabs/Index">TABS&ACCORDIONS</a></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <a href="/Shop/Index">SHOP</a>
+            </div>
+            <div class="icons">
+                <div class="users_category_position d-flex justify-content-between">
+                    <i id="user" class="fa-solid fa-user"></i>
+                    <section class="users_category d-none">
+                        <div class="content_pages">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <ul style="list-style: none">
+                                    <li><a asp-controller="account" asp-action="logout">LOGOUT</a></li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul style="list-style: none">
+                                    <li><a asp-controller="account" asp-action="register">REGISTER</a></li>
+                                    <li><a asp-controller="account" asp-action="login">LOGIN</a></li>
+                                </ul>
+                            }
+                        </div>
+                    </section>
+                    <div class="all_basket">
+                        <a href="/Basket/Index">
+                            <i id="basket" class="fa-solid fa-cart-shopping"></i>
+                            <span>0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

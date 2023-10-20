@@ -1,0 +1,47 @@
+﻿﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "Grid Blog";
+    BlogViewModel blogViewModel = Model;
+    var blogs = blogViewModel.Blog;
+}
+
+<main>
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>@ViewBag.Title</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="/Blog/Index">BLOG</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Blog/Index">GRID BLOG</a>
+    </section>
+
+    <section class="blog">
+        <div class="container">
+            <div class="content_blog text-center">
+                <div class="row" id="blogRow">
+                    <partial name="_BlogPartial" model="@blogs"></partial>
+                </div>
+                <div>
+                    <input value="@ViewBag.blogCount" type="hidden" id="blogCount" />
+                    <button class="btn btn-warning" id="load-more">LOAD MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>

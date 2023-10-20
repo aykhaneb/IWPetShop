@@ -1,0 +1,224 @@
+﻿﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "What We Offer";
+    OfferViewModel offerViewModel = Model;
+    var offermains = offerViewModel.OfferMain;
+    var connecteds = offerViewModel.Connected;
+    var planoffers = offerViewModel.PlanOffer;
+    var taboffers = offerViewModel.TabOffer;
+}
+}
+<main>
+
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>@ViewBag.Title</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="">PAGES</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Offer/Index">What We Offer</a>
+    </section>
+
+    <section class="offer">
+        <div class="all_offer">
+            <div class="container">
+                <div class="content_offer">
+                    <div class="head_offer">
+                        <h2>What we offer</h2>
+                    </div>
+                    <div class="row g-4">
+                        @foreach (var item in offermains)
+                        {
+                            <div class="col-lg-4 offer_lg">
+                                <div class="box_offer_content">
+                                    <div class="box_content">
+                                        <div class="photo_offer">
+                                            <img src="/assets/photos/icon-01-50x50.png" alt="" />
+                                        </div>
+                                        <div class="text_offer">
+                                            <a href="">@item.Title</a>
+                                            <p>
+                                                @item.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="connected">
+        <div class="container">
+            <div class="content_connected">
+                <div class="row">
+                    @foreach (var item in connecteds)
+                    {
+                        <div class="col-lg-4">
+                            <div class="box_connected text-center">
+                                <div class="text_connected">
+                                    <h3 class="lg_h3">
+                                        @Html.Raw(item.Title)
+                                    </h3>
+                                    <h3 class="sm_h3">@Html.Raw(item.Title)</h3>
+                                    <p>@item.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="col-lg-4">
+                        <div class="box_connected">
+                            <div class="email_inp">
+                                <input class="input"
+                                       placeholder="Enter your e-mail address"
+                                       type="email"
+                                       name=""
+                                       id="" />
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var item in connecteds)
+                    {
+                        <div class="col-lg-4">
+                            <div class="box_connected">
+                                <div class="sub">
+                                    <a href="">@item.Link</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plan">
+        <div class="container">
+            <div class="content_plan">
+                <div class="head_plan text-center">
+                    <h3>AFFORDABLE PRICING PLANS</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod. Lorem ipsum dolor Tur adipiscing elit, sed do.
+                        semantic;users, seamless beta-test
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="box_plan_cards text-center">
+                            <div class="top_card">
+                                <h3>Basic</h3>
+                                <p>from $400.00</p>
+                            </div>
+                            <div class="bottom_card">
+                                <ul style="list-style: none">
+                                    <li><p>Pet Food</p></li>
+                                    <li><p>Basic Grooming</p></li>
+                                    <li><p>Toys for pets</p></li>
+                                    <li><p>Veterinary care</p></li>
+                                </ul>
+                                <div class="button_add">
+                                    <a href="">ADD TO CARD</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_plan_cards sale text-center">
+                            <div class="top_card">
+                                <span class="sp_sale">SALE</span>
+                                <h3>Standart</h3>
+                                <p><span class="dollar">$1.000.00</span> $600.00</p>
+                            </div>
+                            <div class="bottom_card">
+                                <ul style="list-style: none">
+                                    <li><p>Dog daycare</p></li>
+                                    <li><p>Group training</p></li>
+                                    <li><p>Adoption</p></li>
+                                    <li><p>Dog clothing</p></li>
+                                </ul>
+                                <div class="button_add">
+                                    <a class="standart_btn" href="">ADD TO CARD</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_plan_cards text-center">
+                            <div class="top_card">
+                                <h3>Premium</h3>
+                                <p>from $800.00</p>
+                            </div>
+                            <div class="bottom_card">
+                                <ul style="list-style: none">
+                                    <li><p>Hotel for pets</p></li>
+                                    <li><p>Pet insurance</p></li>
+                                    <li><p>In-home training</p></li>
+                                    <li><p>Premium Grooming</p></li>
+                                </ul>
+                                <div class="button_add">
+                                    <a href="">ADD TO CARD</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab_offer">
+        <div class="container">
+            <div class="content_tab_offer">
+                <div class="row">
+                    @foreach(var item in taboffers)
+                    {
+                        <div class="col-lg-6">
+                            <div onclick="myFunction()" id="1" class="box_tab_offer_all">
+                                <div class="box_tab_offer d-flex">
+                                    <div class="accordian">
+                                        <div class="accordian_head">
+                                            <div class="arrow text-center">
+                                                <i class="fa-solid fa-angle-right"></i>
+                                            </div>
+                                            <div class="text_tab">
+                                                <p>@item.Title</p>
+                                            </div>
+                                        </div>
+                                        <div class="accordian_body">
+                                            <p class="accordian_description">
+                                                @item.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+

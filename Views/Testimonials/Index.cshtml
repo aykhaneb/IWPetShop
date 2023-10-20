@@ -1,0 +1,147 @@
+﻿﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "Testimonials";
+    TestimonialsViewModel testimonialsViewModel = Model;
+    var firstTests = testimonialsViewModel.FirstTest;
+    var thirdUsers = testimonialsViewModel.ThirdUsers;
+}
+
+<main>
+
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>@ViewBag.Title</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="">PAGES</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Testimonials/Index">TESTIMONIALS</a>
+    </section>
+
+    <section class="first_test">
+        <div class="container">
+            <div class="content_first_test">
+                <div class="head_test text-center">
+                    <h3>#1</h3>
+                </div>
+                <div class="row">
+                    @foreach (var item in firstTests)
+                    {
+                        <div class="col-lg-6">
+                            <div class="all_text_test ">
+                                <div class="text_first_test text-center">
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                                <div class="user_test d-flex ">
+                                    <img src="/assets/photos/user-5-62x62.jpg" alt="">
+                                    <div class="user_info">
+                                        <p class="name">@item.Name</p>
+                                        <p class="client">@item.Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="second_users">
+        <div class="container">
+            <div class="content_second_user">
+                <div class="head_test">
+                    <h3>#2</h3>
+                </div>
+                <div class="all_bottom">
+
+                    <div id="1" class="top_user">
+                        <p>Dolor magna eget est lorem ipsum dolor sit amet. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl.</p>
+                    </div>
+                    <div id="2" class="top_user d-none">
+                        <p>Feugiat in ante metus dictum at tempor commodo ullamcorper. Tristique senectus et netus et dignissim cras tincidunt lobortis.</p>
+                    </div>
+                    <div id="3" class="top_user d-none">
+                        <p>Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Orci phasellus egestas tellus rutrum tellus pellentesque eu.</p>
+                    </div>
+                    <div class="bottom_user text-center">
+                        <div class="row">
+                            <div class="col-lg-4 ">
+                                <div data-id="1" class="box_bottom active">
+                                    <img src="/assets/photos/user-7-87x87.jpg" alt="">
+                                    <p class="name">Patrick Goodman</p>
+                                    <p class="cl">Client</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 ">
+                                <div data-id="2" class="box_bottom">
+                                    <img src="/assets/photos/user-8-87x87.jpg" alt="">
+                                    <p class="name">KATE SMITH</p>
+                                    <p class="cl">Client</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 ">
+                                <div data-id="3" class="box_bottom">
+                                    <img src="/assets/photos/user-9-87x87.jpg" alt="">
+                                    <p class="name">SAM WILSON</p>
+                                    <p class="cl">Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="third_users">
+        <div class="container">
+            <div class="content_third">
+                <div class="head_test">
+                    <h3>#3</h3>
+                </div>
+                <div class="box_third">
+                    <div class="row">
+                        @foreach (var item in thirdUsers)
+                        {
+                            <div class="col-lg-4 margin_third">
+                                <div class="box_content_third">
+                                    <div class="text_and_stars">
+                                        <p>@item.Description</p>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div class="img_and_name d-flex">
+                                        <img src="/assets/@item.ImageUrl" alt="">
+                                        <p>@item.Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

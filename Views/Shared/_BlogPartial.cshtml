@@ -1,0 +1,44 @@
+﻿@using PetShopFinal.DAL.Models;
+@model List<Blog>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 my-2">
+        <div class="box_blog">
+            <div class="top_blog">
+                <img src="@item.ImageUrl" alt="" />
+            </div>
+            <div class="bottom_blog">
+                <p>@item.Month</p>
+                <a href="">@item.Title</a>
+                <p>
+                    @item.Description
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    let skip = 3
+    $(document).on('click', '#load-more', function () {
+        var blogCount = $("#blogCount").val();
+
+        $.ajax({
+            url: "/blog/loadBlogs?skip=" + skip,
+            type: "GET",
+            success: function (response) {
+                $("#blogRow").append(response)
+                skip += 3
+                if (skip >= blogCount)
+                    $("#load-more").remove();
+            },
+            error: function (xhr) {
+
+            }
+        })
+    });
+
+
+</script>

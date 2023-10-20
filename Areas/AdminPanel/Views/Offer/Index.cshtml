@@ -1,0 +1,51 @@
+﻿@using PetShopFinal.DAL.Models;
+@model List<Offer>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic Table</h4>
+            <a class="btn my-3 btn-success" asp-action="create">Create</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src="~/assets/@item.ImageUrl" /></td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>
+                                    @*<button type="submit" asp-action="Update" asp-route-id="@item.Id" class="w-25 btn btn-success btn-fw">Update</button>*@
+                                    <form method="post" asp-action="update">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="w-25 btn btn-success btn-fw">Update</button>
+                                    </form>
+
+                                    <form  asp-action="details">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="w-25 btn btn-warning btn-fw">Details</button>
+                                    </form>
+
+                                    <form method="post" asp-action="delete">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="w-25 btn btn-danger btn-fw">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

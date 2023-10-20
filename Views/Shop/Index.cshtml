@@ -1,0 +1,128 @@
+﻿﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "Shop";
+    ShopViewModel shopViewModel = Model;
+    var products = shopViewModel.Product;
+    var popularproducts = shopViewModel.PopularProduct;
+    var popproducts = shopViewModel.PopProducts;
+    var mainproducts = shopViewModel.MainProducts;
+}
+}
+
+<main>
+
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>Shop List</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="">PAGES</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Shop/Index">SHOP LIST</a>
+    </section>
+
+    <section class="shopping_products">
+        <div class="toaster">
+            Successfully Added
+        </div>
+        <div class="container">
+            <div class="content_shopping_products">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="box_filter">
+                                    <div class="head_filter">
+                                        <h6>FILTER BY PRICE</h6>
+                                    </div>
+                                    <div id="time-range">
+                                        </p>
+                                        <div class="sliders_step1">
+                                            <div class="flat-slider" id="slider-range"></div>
+                                            <div class="filter_and_text w-100 d-flex justify-content-between  ">
+                                                <button class="filter_range">FILTER</button>
+                                                <p>Price: <span class="slider-time">$0</span> - <span class="slider-time2">$999</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search_filter">
+                                        <ul class="w-100" id="appendSearch">
+                                            <li>
+                                                <div class="inp_filter">
+                                                    <input id="search-input" placeholder="Search in shop..." type="text">
+                                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="head_filter">
+                                        <h6>POPULAR PRODUCTS</h6>
+                                    </div>
+                                    <div class="all_popular">
+                                        @foreach (var item in popproducts)
+                                        {
+                                            <div class="popular_products d-flex">
+                                                <div class="photo_popular">
+                                                    <img src="/assets/@item.ImageUrl" alt="">
+                                                </div>
+                                                <div class="text_popular">
+                                                    <a href="">@item.Name</a>
+                                                    <p>$@item.Price</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            @foreach (var item in mainproducts)
+                            {
+                                <div class="col-lg-4">
+                                    <div class="box_shopping">
+                                        <div class="card_product" id="@item.Id">
+                                            <div class="image_card_product2">
+                                                <img src="/assets/@item.ImageUrl"
+                                                     alt="" />
+                                            </div>
+                                            <div class="bottom_product_part">
+                                                <div class="product_name">
+                                                    <a href="#">@item.Name</a>
+                                                </div>
+                                                <div class="product_price">
+                                                    <p class="price">$<span>@item.ProductPrice.00</span></p>
+                                                </div>
+                                                <button class="add_to_card">ADD TO CARD</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+
+</script>

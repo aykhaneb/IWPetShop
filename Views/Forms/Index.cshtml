@@ -1,0 +1,183 @@
+﻿﻿@using PetShopFinal.ViewModels;
+@{
+    ViewData["Title"] = "Forms";
+    FormsViewModel formsViewModel = Model;
+    var contactforms = formsViewModel.ContactForm;
+    var lforms = formsViewModel.LForm;
+}
+
+<main>
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>@ViewBag.Title</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages_full">
+        <a href="/Home/Index">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="">ELEMETS</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="/Forms/Index">FORMS</a>
+    </section>
+
+   @* <section class="login_form">
+        <div class="container">
+            <div class="content_login_form">
+                <div class="row">
+                    <div class="col-lg-6">
+                        @foreach(var item in contactforms)
+                        {
+                        <div class="heading_login">
+                            <h3>@item.Title</h3>
+                        </div>
+                        <div class="inputs_login">
+                            <div class="input_login">
+                                    <input placeholder="@item.FName" type="text" />
+                            </div>
+                            <div class="input_login">
+                                <input placeholder="@item.Email" type="email" />
+                            </div>
+                            <div class="input_login">
+                                <textarea placeholder="@item.Message"
+                                          name=""
+                                          id=""
+                                          cols="30"
+                                          rows="10"></textarea>
+                            </div>
+                            <button class="send">@item.Link</button>
+                        </div>
+                        }
+                    </div>
+                    <div class="col-lg-6">
+                        @foreach(var item in lforms)
+                        {
+                        <div class="heading_login">
+                            <h3>@item.Title</h3>
+                        </div>
+                        <div class="inputs_login">
+                            <div class="social_login">
+                                <button class="google_login">
+                                        <i class="fa-brands fa-google-plus-g"></i>@item.Google
+                                </button>
+                                <button class="twit_login">
+                                        <i class="fa-brands fa-twitter"></i>@item.Twitter
+                                </button>
+                                <button class="face_login">
+                                    <i class="fa-brands fa-facebook-f"></i>@item.FaceBook
+                                </button>
+                            </div>
+                            <div class="input_login">
+                                    <input placeholder="@item.Name" type="text" />
+                            </div>
+                            <div class="input_login">
+                                    <input placeholder="@item.Password" type="password" />
+                            </div>
+                            <div class="input_login_check d-flex">
+                                <input name="checbox1" type="checkbox" />
+                                <span>Remember now</span>
+                            </div>
+                            <button class="sign">@item.SignIn</button>
+                            <button class="account">@item.CreateAccount</button>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <section class="connected">
+        <div class="container">
+            <div class="content_connected">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="box_connected text-center">
+                            <div class="text_connected">
+                                <h3 class="lg_h3">
+                                    Stay<span> <br />connected</span>
+                                </h3>
+                                <h3 class="sm_h3">Stay<span> connected</span></h3>
+                                <p>Subscribe to our newsletter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_connected">
+                            <div class="email_inp">
+                                <input class="input"
+                                       placeholder="Enter your e-mail address"
+                                       type="email"
+                                       name=""
+                                       id="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_connected">
+                            <div class="sub">
+                                <a href="">SUBSCRIBE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="touch_contact_forms">
+        <div class="container">
+            <div class="content_touch">
+                <div class="head_touch">
+                    <h3>Contact form 2</h3>
+                </div>
+                <div class="bottom_touch">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="box_mail_touch">
+                                <div class="touchinput">
+                                    <input placeholder="First Name" type="text" />
+                                </div>
+                                <div class="touchinput">
+                                    <input placeholder="E-mail" type="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box_mail_touch">
+                                <div class="touchinput">
+                                    <input placeholder="Last Name" type="text" />
+                                </div>
+                                <div class="touchinput">
+                                    <input placeholder="Phone" type="tel" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box_mail_touch">
+                                <div class="touchinput">
+                                    <textarea placeholder="Message"
+                                              name=""
+                                              id=""
+                                              cols="30"
+                                              rows="6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button>SEND MESSAGE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
